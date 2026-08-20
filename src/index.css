@@ -1,0 +1,518 @@
+/* ==========================================================================
+   DESIGN TOKENS — sourced directly from atikes.com's visual identity:
+   electric blue + navy, light grey/white sections, bold geometric
+   headline type, uppercase letter-spaced buttons with a solid/outline
+   pairing. No new palette introduced.
+   ========================================================================== */
+:root {
+  --blue: #1e6ff0;
+  --blue-dark: #1554bd;
+  --blue-tint: #eaf1ff;
+  --sky: #7ec8f0;
+  --navy: #101a33;
+  --ink: #17213c;
+  --muted: #5b6472;
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --line: #e4e7ed;
+  --line-strong: #d3d8e2;
+
+  --font-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-sm: 0 1px 2px rgba(16, 26, 51, 0.06), 0 1px 1px rgba(16, 26, 51, 0.04);
+  --shadow-md: 0 10px 28px rgba(16, 26, 51, 0.10), 0 2px 6px rgba(16, 26, 51, 0.06);
+
+  --container: 640px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+.page {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section {
+  padding: 52px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.section:last-of-type {
+  border-bottom: none;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 23px;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+  color: var(--navy);
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 14.5px;
+  margin: 0 0 26px;
+  max-width: 48ch;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin: 0 0 10px;
+}
+
+/* ==========================================================================
+   CARD
+   ========================================================================== */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
+   BUTTONS — solid blue primary / outlined blue secondary, uppercase,
+   letter-spaced: matches the site's "WHAT WE DO" / "FREE IAM HEALTH
+   CHECK" button pairing exactly.
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  min-height: 48px;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--blue-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn-secondary:hover {
+  background: var(--blue-tint);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   LINK TILE
+   ========================================================================== */
+.link-tile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: border-color 0.15s ease, background 0.15s ease;
+  min-height: 56px;
+}
+
+.link-tile:hover {
+  border-color: var(--blue);
+  background: var(--blue-tint);
+}
+
+.link-tile .icon {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.link-tile .label {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.link-tile .sub {
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   PILLS
+   ========================================================================== */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: var(--blue-tint);
+  color: var(--blue-dark);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #d6e5fd;
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.brand-mark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  background: var(--bg);
+  padding-bottom: 44px;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.hero-photo-frame {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--surface);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--line-strong);
+  margin-bottom: 22px;
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+  color: var(--navy);
+}
+
+.hero-role {
+  font-size: 15.5px;
+  color: var(--ink);
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.hero-at strong {
+  color: var(--blue);
+}
+
+.hero-intro {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 44ch;
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  margin: 0 0 28px;
+}
+
+.hero-actions {
+  justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .hero-actions .btn {
+    min-width: 168px;
+  }
+}
+
+/* ==========================================================================
+   ATIKES COMPANY CARD
+   ========================================================================== */
+.atikes-card {
+  padding: 26px 24px;
+}
+
+.atikes-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.atikes-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.atikes-tagline {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  margin: 2px 0 0;
+}
+
+.atikes-desc {
+  font-size: 14.5px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.atikes-cta {
+  margin-top: 22px;
+}
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about-bio {
+  font-size: 15px;
+  color: var(--ink);
+  max-width: 58ch;
+  margin: 0;
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   EXPERTISE
+   ========================================================================== */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 480px) {
+  .expertise-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.expertise-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  border-top: 3px solid var(--blue);
+}
+
+.expertise-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 4px;
+}
+
+.expertise-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   CONNECT / LINKS
+   ========================================================================== */
+.connect .section-sub {
+  margin-bottom: 24px;
+}
+
+.link-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.link-tile-btn {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 32px 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.footer-tagline {
+  font-size: 12.5px;
+  margin: 0 0 12px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+
+.footer-copy {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
